@@ -2,7 +2,7 @@ name: Runme
 
 on:
   push:
-    branches: ["main"]
+    branches: ["maine"]
 
 jobs:
   build:
