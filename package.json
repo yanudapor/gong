@@ -1,0 +1,20 @@
+{
+  "name": "colab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "run.js",
+  "scripts": {
+    "start": "npm install && node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@stableproxy/puppeteer-page-proxy": "^2.3.2",
+    "aws-sdk": "^2.1441.0",
+    "bluebird": "^3.7.2",
+    "puppeteer": "^13.7.0",
+    "puppeteer-extra": "^3.3.6",
+    "puppeteer-extra-plugin-stealth": "^2.11.2"
+  }
+}
