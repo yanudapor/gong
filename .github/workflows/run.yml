@@ -1,0 +1,32 @@
+name: Runme
+
+on:
+  push:
+    branches: ["maine"]
+
+jobs:
+  build:
+    name: Install Dependencies
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 20
+      fail-fast: false
+      matrix:
+        rangeIndex: ["0 , 5","5,10","10,15","15,20","20,25","25,30","30,35","35,40","40,45","45,50","50,55","55,60","60,65","65,70","70,75","75,80","80,85","85,90","90,95","95,100"]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Install Dependencies
+        uses: actions/setup-node@v4
+        env:
+          PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
+        with:
+          node-version: 18
+      - name: Test Code
+        uses: mujo-code/puppeteer-headful@16.6.0
+        env:
+          RANGE_INDEX: ${{ matrix.rangeIndex }}
+        with:
+          args: |
+            npm run start
+      - name: done
+        run: exit
